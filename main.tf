@@ -24,5 +24,7 @@ resource "aws_security_group" "bar-sg" {
 
 resource "aws_s3_bucket" "bucket" {
   bucket = "test-bucket"
-  
+  versioning {
+    enabled = true
+  }
 }
