@@ -21,3 +21,8 @@ resource "aws_security_group" "bar-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+resource "aws_s3_bucket" "bucket" {
+  bucket = "test-bucket"
+  
+}
