@@ -1,30 +1,26 @@
+# terraform {
+#   required_providers {
+#     aws = {
+#       version = ">= 2.7.0"
+#       source = "hashicorp/aws"
+#     }
+#   }
+# }
+
 provider "aws" {
-region = "us-west-2"
+  region = "us-west-2"
+  version = "2.7.0"
 }
 
-resource "aws_security_group" "bar-sg" {
-  name   = "mysg"
-  vpc_id = "vpc-013e69f5146412c46"
 
-  ingress {
-    from_port = 22
-    to_port   = 22
-    protocol  = "tcp"
-    cidr_blocks       = ["0.0.0.0/0"]
-    description = "foo"
-  }
 
-  egress {
-    from_port = 0
-    to_port   = 0
-    protocol  = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-
-resource "aws_s3_bucket" "bucket" {
-  bucket = "test-bucket"
-  versioning {
+resource "aws_s3_bucket" "untagged-bucket" {
+ bucket = "bc-mike-test-pass"
+ versioning {
     enabled = true
   }
+}
+
+resource "aws_s3_bucket" "bucket2" {
+ bucket = "bc-mike-test"
 }
