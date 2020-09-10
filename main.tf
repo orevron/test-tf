@@ -19,10 +19,22 @@ resource "aws_s3_bucket" "untagged-bucket" {
  versioning {
     enabled = true
   }
+  tags = {
+   Environment = "test2"
+ }
 }
 
 resource "aws_s3_bucket" "bucket2" {
- bucket = "bc-mike-test"
+ bucket = "bc-mike-test2"
+ tags = {
+   Environment = "test1"
+ }
+   
+}
+
+resource "aws_s3_bucket" "bucket3" {
+ bucket = "bc-mike-test3"
+
 }
 
 resource "aws_ebs_volume" "ebs1" {
