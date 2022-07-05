@@ -1,0 +1,3 @@
+variable "encrypted" {
+  default = false
+}
