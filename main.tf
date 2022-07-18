@@ -8,3 +8,8 @@ resource "aws_ebs_volume" "v2" {
 
 resource "aws_ebs_volume" "v3" {
 }
+
+resource "aws_ebs_volume" "v4" {
+  encrypted = var.encrypted2
+}
+
